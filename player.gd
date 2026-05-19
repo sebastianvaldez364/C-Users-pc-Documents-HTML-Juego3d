@@ -5,7 +5,9 @@ extends RigidBody3D
 var speed = 0.01
 
 func _input(event: InputEvent):
+
 	if event is InputEventMouseMotion:
+
 		spring_arm_3d.rotation.x -= event.relative.y * speed
 		spring_arm_3d.rotation.y -= event.relative.x * speed
 
@@ -16,10 +18,12 @@ func _input(event: InputEvent):
 		)
 
 func _ready() -> void:
+
 	spring_arm_3d.top_level = true
 
 func _process(delta: float) -> void:
-	spring_arm_3d.global_position = self.global_position
+
+	spring_arm_3d.global_position = global_position
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
