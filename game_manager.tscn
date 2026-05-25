@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ernv1x6m3qyy"]
+
+[ext_resource type="Script" uid="uid://ibklev00lqdv" path="res://game_manager.gd" id="1_smx3j"]
+[ext_resource type="AudioStream" uid="uid://dy8crtn0asvma" path="res://Pickup_Coin12.ogg" id="2_o2178"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_smx3j")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_o2178")

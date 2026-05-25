@@ -10,10 +10,19 @@ config_version=5
 
 [application]
 
-config/name="juego3D"
-run/main_scene="uid://cqbv252hgttys"
+config/name="juego beta"
+run/main_scene="uid://h2s6a4r83471"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://game_manager.tscn"
+
+[global_group]
+
+Players=""
+Coleccionables=""
 
 [input]
 
@@ -38,6 +47,13 @@ right={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="main"
+3d_render/layer_2="player"
+3d_render/layer_3="coin"
+
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.79277015, 0, 0.08298286, 1)

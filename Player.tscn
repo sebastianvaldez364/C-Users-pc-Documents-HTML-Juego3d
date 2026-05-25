@@ -1,32 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ucy3mxufjfh"]
+[gd_scene load_steps=6 format=3 uid="uid://w86dc1dmkbk8"]
 
-[ext_resource type="Script" uid="uid://cs5m0h0cb3u8e" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://dtbe48tjqo8pd" path="res://player.gd" id="1_4flbx"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_iriaq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(1, 0, 1, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_utpqa"]
+[sub_resource type="SphereMesh" id="SphereMesh_1bvp3"]
+material = SubResource("StandardMaterial3D_h2yge")
 
-[sub_resource type="BoxMesh" id="BoxMesh_xhfnw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+albedo_color = Color(0.91, 0.2275, 0.2275, 1)
 
-[node name="RigidBody3D" type="RigidBody3D" groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07264733)
-contact_monitor = true
-max_contacts_reported = 10
-script = ExtResource("1_xhfnw")
+[sub_resource type="SphereShape3D" id="SphereShape3D_lquwl"]
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["Players"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.46625158, 0, 0, 0, 0.35691994, 0, 0, 0, 1, -0.025753468, 0.044517756, -0.003477335)
-mesh = SubResource("SphereMesh_iriaq")
+mesh = SubResource("SphereMesh_1bvp3")
+surface_material_override/0 = SubResource("StandardMaterial3D_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_utpqa")
+shape = SubResource("SphereShape3D_lquwl")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(0.9911409, -0.08072208, 0.10547128, 0.05537015, 0.972941, 0.22432058, -0.12072199, -0.21649395, 0.9687914, 0.23339581, 1.2912505, 1.9836667)
-fov = 76.45684
-
-[node name="cubito" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.06713313, 0, 0, 0, 0.5109318, 0, 0, 0, 0.4425484, 0.0032421947, 0.040926754, -0.032724738)
-mesh = SubResource("BoxMesh_xhfnw")
+transform = Transform3D(1, 0, 0, 0, 0.9913558, 0.13120101, 0, -0.13120101, 0.9913558, 0, 0.27995348, 1.9748105)
